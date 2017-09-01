@@ -10,6 +10,7 @@
  */
 import java.util.*;
 import java.sql.*;
+import javax.swing.*;
 import static java.util.Arrays.sort;
 public class techno extends javax.swing.JFrame {
     int tc=15;
@@ -25,6 +26,7 @@ public class techno extends javax.swing.JFrame {
     int[][] bids = new int [tc][teams];
     int[] tb = new int [teams];
     int y=0;
+    double mf = 0.90;
     /**
      * Creates new form techno
      */
@@ -74,9 +76,13 @@ public class techno extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         t10 = new javax.swing.JTextField();
         t11 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        t12 = new javax.swing.JTextField();
+        t13 = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
+        t14 = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -221,9 +227,9 @@ public class techno extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Annual profit");
+        jLabel9.setText("Combined Annual profit");
 
-        jLabel10.setText("combo with ");
+        jLabel10.setText("Combo with ");
 
         t10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,13 +240,6 @@ public class techno extends javax.swing.JFrame {
         t11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t11ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Get Bid");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
             }
         });
 
@@ -255,6 +254,38 @@ public class techno extends javax.swing.JFrame {
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
+            }
+        });
+
+        t12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t12ActionPerformed(evt);
+            }
+        });
+
+        t13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t13ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Insert bid");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        t14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t14ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("Add Manually");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
             }
         });
 
@@ -300,6 +331,23 @@ public class techno extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(t13, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(t14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(13, 13, 13))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -326,25 +374,19 @@ public class techno extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(t12, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(c2, 0, 248, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(c1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(226, 226, 226))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                            .addComponent(c1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,19 +413,18 @@ public class techno extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                            .addComponent(t2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(t4)
-                                .addGap(3, 3, 3)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(t4, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                        .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(t5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -391,30 +432,38 @@ public class techno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(t8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                            .addComponent(t8))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(t10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(t10, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(t12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton2)
+                                    .addComponent(c2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(c2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton9))
-                        .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(t13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(t14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton13))
+                        .addContainerGap(85, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(li1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,7 +486,7 @@ public class techno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int anp=Integer.parseInt(t1.getText());
         int cw=Integer.parseInt(t10.getText());
-        int cap=Integer.parseInt(t9.getText());
+        int cap=Integer.parseInt(t12.getText());
         int acp=Integer.parseInt(t2.getText());
         int r=Integer.parseInt(t5.getText());
         int left=Integer.parseInt(t8.getText());
@@ -461,8 +510,17 @@ public class techno extends javax.swing.JFrame {
         t1.setText("");
         t2.setText("");
         t3.setText("");
+        t4.setText("");
+        t5.setText("");
         t6.setText("");
         t7.setText("");
+        t8.setText("");
+        t9.setText("");
+        t10.setText("");
+        t11.setText("");
+        t12.setText("");
+        t13.setText("");
+        t14.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -472,13 +530,20 @@ public class techno extends javax.swing.JFrame {
         annualProfit[tn]+=annualProfitCard[cn];
         money[tn]-=p;
         boughtBy[cn]=tn;
-        cn++;
         t1.setText("");
         t2.setText("");
         t3.setText("");
         t4.setText("");
+        t5.setText("");
         t6.setText("");
         t7.setText("");
+        t8.setText("");
+        t9.setText("");
+        t10.setText("");
+        t11.setText("");
+        t12.setText("");
+        t13.setText("");
+        t14.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void t1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t1ActionPerformed
@@ -498,6 +563,9 @@ public class techno extends javax.swing.JFrame {
     }//GEN-LAST:event_t7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int n = Integer.parseInt(t7.getText());
+        mf = 100 - n ;
+        mf = mf/100;
         for(int i=0;i<teams;i++){
             tb[i] = 0;
             for(int j=0;j<tc;j++){
@@ -512,33 +580,32 @@ public class techno extends javax.swing.JFrame {
             actualPrice[i]=0;
             boughtBy[i]=-1;
         }
-        
         t1.setText("");
         t2.setText("");
         t3.setText("");
+        t4.setText("");
+        t5.setText("");
         t6.setText("");
         t7.setText("");
+        t8.setText("");
+        t9.setText("");
+        t10.setText("");
+        t11.setText("");
+        t12.setText("");
+        t13.setText("");
+        t14.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         y++;
         for(int i=0;i<teams;i++){
-            if(money[i]>=350000){
-                money[i] = money[i]*0.9;
-            }
-            else if(money[i]>=250000){
-                money[i] = money[i]*0.92;
-            }
-            else if(money[i]>=150000){
-                money[i] = money[i]*0.94;
-            }
-            else{
-                money[i] = money[i]*0.96;
-            }
+                
+                money[i] = money[i]*mf;
+            
             if(fd[i]!=0){
                 int p=0;
                 if(fd[i]!=200000){p=1;}
-                fd[i]*=.96;
+                fd[i]*=.95;
                 if(p==1){
                     money[i]+=fd[i];
                     fd[i]=0;
@@ -546,21 +613,31 @@ public class techno extends javax.swing.JFrame {
             }
             money[i]+=annualProfit[i];
         }
-        if(y>=3){
-            annualProfit[0]=0;
+        if(y<3 || !"cow".equals(c1.getItemAt(0))){
+        } else {
+            annualProfit[boughtBy[0]]-=annualProfitCard[0];
         }
         for(int i=0;i<tc;i++){
             if(combo[i][0]!=-1){
                 if(boughtBy[i]==boughtBy[combo[i][0]]){
-                    money[boughtBy[i]]+=combo[i][1]-annualProfit[i];
+                    money[boughtBy[i]]+=combo[i][1]-annualProfitCard[i];
                 }
             }
         }
         t1.setText("");
         t2.setText("");
         t3.setText("");
+        t4.setText("");
+        t5.setText("");
         t6.setText("");
         t7.setText("");
+        t8.setText("");
+        t9.setText("");
+        t10.setText("");
+        t11.setText("");
+        t12.setText("");
+        t13.setText("");
+        t14.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -575,8 +652,17 @@ public class techno extends javax.swing.JFrame {
         t1.setText("");
         t2.setText("");
         t3.setText("");
+        t4.setText("");
+        t5.setText("");
         t6.setText("");
         t7.setText("");
+        t8.setText("");
+        t9.setText("");
+        t10.setText("");
+        t11.setText("");
+        t12.setText("");
+        t13.setText("");
+        t14.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -643,21 +729,14 @@ public class techno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_t11ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        int t = c2.getSelectedIndex();
-        //int c = c1.getSelectedIndex();
-        int bid = Integer.parseInt(t11.getText());
-        int c=1;
-        bids[c][t] = bid;
-        tb[t] = bid;
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         int[] visited=new int [teams];
-        
+        for(int i=0;i<teams;i++){
+            visited[i]=0;
+        }
+        int c=c1.getSelectedIndex();
         sort(tb);
         String s="";
-        int kk=0;
         for(int i=teams-1;i>=0;i--){
             if(i<10){
                 if(tb[i]!=tb[i+1]){
@@ -665,23 +744,24 @@ public class techno extends javax.swing.JFrame {
             }
             int a = tb[i];
             for(int j=0;j<teams;j++){
-                if(tb[i]==bids[1][j]){
+                if(tb[i]==bids[c][j] && visited[j]==0){
                     s += ("Team" + (j+1) + ":" + tb[i])+"  ";
-                    kk++;
+                    visited[j]=1;
                     break;
                 }
             }
         }
-        System.out.println(kk);
         System.out.println(s);
-        //l1.setText(s);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         try{  
+            
             Class.forName("com.mysql.jdbc.Driver");  
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Event","root","root");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Event?autoReconnect=true&useSSL=false","root","root");
             Statement stmt=con.createStatement();
+            String t="delete from Bids;";
+            stmt.executeUpdate(t);
             for(int i=0;i<teams;i++){
                 String s="\"Team"+(i+1)+"\"";
                 String sql="insert into Bids values("+s;
@@ -689,7 +769,7 @@ public class techno extends javax.swing.JFrame {
                     sql+=","+bids[j][i];
                 }
                 sql+=");";
-                stmt.executeQuery(sql);
+                stmt.executeUpdate(sql);
             }
             String s="\"Money of teams are\"";
             String sql="insert into Money values("+s;
@@ -697,11 +777,43 @@ public class techno extends javax.swing.JFrame {
                 sql+=","+money[i];
             }
             sql+=");";
-            stmt.executeQuery(sql);
+            stmt.executeUpdate(sql);
             con.close();  
         }
         catch(Exception e){ System.out.println(e);}  
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void t12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t12ActionPerformed
+
+    private void t13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        int t = c2.getSelectedIndex();
+        int c = c1.getSelectedIndex();
+        int bid = Integer.parseInt(t11.getText());
+        bids[c][t] = bid;
+        tb[t] = bid;
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void t14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        int team1 = Integer.parseInt(t13.getText());
+        int team2 = Integer.parseInt(t14.getText());
+        int m = Integer.parseInt(t9.getText());
+        
+        for(int i=team1;i<=team2;i++){
+            money[i-1] += m;
+        }
+        
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -744,6 +856,8 @@ public class techno extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -751,7 +865,6 @@ public class techno extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -767,6 +880,9 @@ public class techno extends javax.swing.JFrame {
     private javax.swing.JTextField t1;
     private javax.swing.JTextField t10;
     private javax.swing.JTextField t11;
+    private javax.swing.JTextField t12;
+    private javax.swing.JTextField t13;
+    private javax.swing.JTextField t14;
     private javax.swing.JTextField t2;
     private javax.swing.JTextField t3;
     private javax.swing.JTextField t4;
