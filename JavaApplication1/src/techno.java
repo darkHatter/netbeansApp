@@ -8,13 +8,14 @@
  *
  * @author rajas
  */
+
 import java.util.*;
 import java.sql.*;
 import javax.swing.*;
 import static java.util.Arrays.sort;
 public class techno extends javax.swing.JFrame {
     int tc=15;
-    int teams=15;
+    int teams=16;
     double[] money = new double[teams];
     double[] annualProfit = new double[teams];
     double[] annualProfitCard = new double[tc];
@@ -168,7 +169,7 @@ public class techno extends javax.swing.JFrame {
             }
         });
 
-        c2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Team1", "Team2", "Team3", "Team4", "Team5", "Team6", "Team7", "Team8", "Team9", "Team10", "Team11", "Team12", "Team13", "Team14", "Team15" }));
+        c2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Team1", "Team2", "Team3", "Team4", "Team5", "Team6", "Team7", "Team8", "Team9", "Team10", "Team11", "Team12", "Team13", "Team14", "Team15", "Team16" }));
 
         t3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +177,7 @@ public class techno extends javax.swing.JFrame {
             }
         });
 
-        li1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Team1", "Team2", "Team3", "Team4", "Team5", "Team6", "Team7", "Team8", "Team9", "Team10", "Team11", "Team12", "Team13", "Team14", "Team15" }));
+        li1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Team1", "Team2", "Team3", "Team4", "Team5", "Team6", "Team7", "Team8", "Team9", "Team10", "Team11", "Team12", "Team13", "Team14", "Team15", "Team16" }));
         li1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 li1ActionPerformed(evt);
@@ -569,13 +570,16 @@ public class techno extends javax.swing.JFrame {
         for(int i=0;i<teams;i++){
             tb[i] = 0;
             for(int j=0;j<tc;j++){
-                bids[i][j] = 0;
+                bids[j][i] = 0;
             }
             fd[i] = 0;
             money[i]=Integer.parseInt(t6.getText());
             annualProfit[i]=0;
         }
         for(int i=0;i<tc;i++){
+            for(int j=0;j<2;j++){
+                combo[i][j] = -1;
+            }
             annualProfitCard[i]=0;
             actualPrice[i]=0;
             boughtBy[i]=-1;
@@ -674,7 +678,8 @@ public class techno extends javax.swing.JFrame {
                 card+=s+" ";
             }
         }
-        String s="Team "+m+1+" have total amount worth "+money[m]+" and cards it bought are "+card;
+        m++;
+        String s="Team "+m+" have total amount worth "+money[m-1]+" and cards it bought are "+card;
         l1.setText(s);
     }//GEN-LAST:event_jButton6ActionPerformed
 
